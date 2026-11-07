@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali 2026</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #080d27, #24103d);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 30px 18px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #ffd166;
+            font-size: 35px;
+            margin: 25px 0;
+            text-shadow: 0 0 15px orange;
+        }
+
+        .diya {
+            font-size: 85px;
+            animation: glow 1s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px orange);
+            }
+
+            to {
+                filter: drop-shadow(0 0 25px gold);
+            }
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 18px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid gold;
+            border-radius: 12px;
+            font-size: 17px;
+            outline: none;
+            margin: 15px 0;
+        }
+
+        button {
+            background: linear-gradient(45deg, orange, gold);
+            color: #25102c;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 8px;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 22px;
+            border: 2px solid gold;
+            border-radius: 18px;
+            background: #171432;
+        }
+
+        .result h2 {
+            color: #ffd166;
+            margin: 15px 0;
+        }
+
+        .result p {
+            color: white;
+        }
+
+        .footer {
+            color: gold;
+            margin-top: 35px;
+        }
+
+        .star {
+            position: fixed;
+            top: -20px;
+            color: gold;
+            animation: fall 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="diya">🪔</div>
+
+        <h1>Happy Diwali 2026</h1>
+
+        <p>
+            A Festival of Lights, Happiness
+            and New Beginnings!
+        </p>
+
+        <h3>Enter Your Name</h3>
+
+        <input type="text" id="username" placeholder="Enter your name here">
+
+        <br>
+
+        <button onclick="showGreeting()">
+            Search ✨
+        </button>
+
+        <div class="result" id="result">
+
+            <div style="font-size:65px">🎆🪔🎆</div>
+
+            <h2 id="greetingName"></h2>
+
+            <p>
+                May your dreams shine brighter than
+                fireworks and your life be filled
+                with endless happiness.
+            </p>
+
+            <h2>✨ शुभ दीपावली ✨</h2>
+
+            <p>
+                Light Up Hearts, Brighten Lives,
+                and Let Happiness Shine Forever!
+            </p>
+
+            <button onclick="shareWhatsApp()">
+                Share on WhatsApp 📲
+            </button>
+
+        </div>
+
+        <div class="footer">
+            <p>Made with ❤️ for Everyone</p>
+            <p>© 2026 Happy Diwali</p>
+        </div>
+
+    </div>
+
+    <script>
+
+        function showGreeting() {
+
+            let name = document.getElementById("username")
+                .value.trim();
+
+            if (name === "") {
+                alert("Please enter your name!");
+                return;
+            }
+
+            document.getElementById("greetingName")
+                .innerText = "Dear " + name + "!";
+
+            document.getElementById("result").style.display =
+                "block";
+
+        }
+
+        function shareWhatsApp() {
+
+            let name = document.getElementById("username")
+                .value.trim();
+
+            let message =
+                "🪔 Happy Diwali 2026 🪔\n\n" +
+                "Dear " + name + "!\n\n" +
+                "May your dreams shine brighter than fireworks.\n" +
+                "Wishing you happiness and prosperity!\n\n" +
+                "✨ शुभ दीपावली ✨\n\n" +
+                "Open this website and create your own greeting: " +
+                window.location.href;
+
+            let url = "https://wa.me/?text=" +
+                encodeURIComponent(message);
+
+            window.open(url, "_blank");
+
+        }
+
+        // Falling festive stars
+
+        function createStar() {
+
+            let star = document.createElement("div");
+
+            star.className = "star";
+            star.innerHTML = "✦";
+
+            star.style.left = Math.random() * 100 + "vw";
+            star.style.animationDuration =
+                (2 + Math.random() * 3) + "s";
+
+            document.body.appendChild(star);
+
+            setTimeout(() => star.remove(), 5000);
+        }
+
+        setInterval(createStar, 300);
+
+    </script>
+
+</body>
+
+</html>
